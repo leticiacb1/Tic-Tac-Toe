@@ -44,5 +44,11 @@ def play_random_agent(env, agent, mask):
     return x
 
 def my_agent(agent , mask):
-    x = int(input("Por favor, digite sua jogada: "))
+
+    print("\n     ------------------------------------")
+    print(f"             YOUR TURN ")
+    print("     ------------------------------------\n") 
+    
+    x = int(input(" \n    > Choose position :  "))
+    
     return x
