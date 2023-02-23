@@ -42,3 +42,7 @@ Na pasta raiz do projeto digite:
 ````
 
 No seu terminal aparecera as opções de jogo, uma em que utilizamos o algorítimo MiniMax contra um player randomico e outra em que você pode jogar contra o algorítimo de MiniMax . Selecione a opção que deseja e divirta-se !
+
+<p align="center">
+  <img src="xo.png" width="350" title="hover text">
+</p>
