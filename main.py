@@ -39,8 +39,6 @@ def main(env, option):
                         value , child = min_max_agent(root, depth, agent)
                         action = child.id_move
 
-                        print(f"Jogou 1 : {action}\n")
-
                         # Display:
                         if(option != 3 and option != 4):
                             player_move('SMART MACHINE' , action)
@@ -60,14 +58,11 @@ def main(env, option):
                                 # Variaveis do nó
                                 depth = 1
                                 board = change_observation_format(observation)
-                                root = Node(agent, board , observation['action_mask'], action)
+                                root = Node('player_1', board , observation['action_mask'], action)
                                 
-                                # Ação por mim-max
-                                value , child = min_max_agent(root, depth, agent)
+                                # Ação por mim-max (Gambiarra passando player_1 aqui novamente)
+                                value , child = min_max_agent(root, depth, 'player_1')
                                 action = child.id_move
-
-
-                                print(f"Jogou 2 : {action}\n")
 
                     env.step(action)
         
