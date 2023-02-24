@@ -39,6 +39,8 @@ def main(env, option):
                         value , child = min_max_agent(root, depth, agent)
                         action = child.id_move
 
+                        print(f"Jogou 1 : {action}\n")
+
                         # Display:
                         if(option != 3 and option != 4):
                             player_move('SMART MACHINE' , action)
@@ -52,12 +54,23 @@ def main(env, option):
                             action = my_agent(agent,observation['action_mask']) 
                         else:
                             # Loop de jogadas
-                            if(option == 3):# Random
+                            if(option == 3):   # Random
                                 action = play_random_agent(env,agent,observation['action_mask'])
+                            elif(option == 4): # Smart
+                                # Variaveis do nó
+                                depth = 1
+                                board = change_observation_format(observation)
+                                root = Node(agent, board , observation['action_mask'], action)
+                                
+                                # Ação por mim-max
+                                value , child = min_max_agent(root, depth, agent)
+                                action = child.id_move
+
+
+                                print(f"Jogou 2 : {action}\n")
 
                     env.step(action)
         
-
         # Jogando apenas 1 vez:
         if (option == 1 or option == 2): 
 
